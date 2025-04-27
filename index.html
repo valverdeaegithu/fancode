@@ -6,38 +6,422 @@
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
   <style>
-    body {
-      background-color: #0f0f0f;
-      color: #fff;
-    }
-    .match-card {
-      transition: all 0.3s ease-in-out;
-      background: linear-gradient(145deg, #1a1a1a, #1f1f1f);
-    }
-    .match-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 30px 40px rgba(0, 0, 0, 0.5);
-    }
-    .live-badge {
-      animation: pulse 1.5s infinite;
-    }
-    @keyframes pulse {
-      0%, 100% {
-        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
-      }
-      50% {
-        box-shadow: 0 0 15px 10px rgba(239, 68, 68, 0);
-      }
-    }
-    .match-img {
-      transition: transform 0.3s ease;
-    }
-    .match-card:hover .match-img {
-      transform: scale(1.03);
-    }
-  </style>
+   <style>
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes livePulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        :root {
+            --background-color: #121212;
+            --text-color: white;
+            --card-background: #222;
+        }
+
+        .light-theme {
+            --background-color: white;
+            --text-color: black;
+            --card-background: #f0f0f0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: var(--background-color);
+            color: var(--text-color);
+            padding: 20px;
+            transition: background 0.5s, color 0.5s;
+        }
+
+        .title-box {
+            background: #d35400;
+            color: white;
+            font-size: 22px;
+            font-weight: bold;
+            text-transform: uppercase;
+            padding: 12px;
+            border-radius: 8px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .telegram-btn {
+            display: inline-flex;
+            align-items: center;
+            background: #0088cc;
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            transition: transform 0.3s;
+        }
+
+        .telegram-btn img {
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+        }
+
+        .telegram-btn:hover {
+            transform: scale(1.05);
+        }
+
+        h1 {
+            font-size: 26px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .event-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .event {
+            width: 400px;
+            background: var(--card-background);
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            padding-bottom: 15px;
+            animation: heartbeat 3s infinite;
+            transition: transform 0.3s;
+        }
+
+        .event:hover {
+            transform: scale(1.03);
+        }
+
+        .event img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+        }
+
+        .event-content {
+            padding: 15px;
+        }
+
+        .title {
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--text-color);
+            margin-bottom: 5px;
+        }
+
+        .league {
+            font-size: 14px;
+            color: #bbb;
+            margin-bottom: 10px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 15px;
+        }
+
+        .live-btn {
+            display: block;
+            width: 60%;
+            padding: 8px;
+            background: red;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+            margin: 0 auto;
+        }
+
+        .live-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .upcoming-btn {
+            display: block;
+            width: 60%;
+            padding: 8px;
+            background: yellow;
+            color: black;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+            margin: 0 auto;
+        }
+
+        .upcoming-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .live-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: red;
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 5px;
+            animation: livePulse 1.5s infinite;
+        }
+
+        /* Theme Toggle Button */
+        .toggle-btn {
+            width: 50px;
+            height: 50px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin: 0 auto 20px; /* Centered under Telegram button */
+        }
+
+        .toggle-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 1);
+        }
+
+        .toggle-btn span {
+            font-size: 24px;
+            color: black;
+        }
+
+    </style>
 </head>
-<body class="bg-gray-950 min-h-screen">
+<body>
+ <style>
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes livePulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        :root {
+            --background-color: #121212;
+            --text-color: white;
+            --card-background: #222;
+        }
+
+        .light-theme {
+            --background-color: white;
+            --text-color: black;
+            --card-background: #f0f0f0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: var(--background-color);
+            color: var(--text-color);
+            padding: 20px;
+            transition: background 0.5s, color 0.5s;
+        }
+
+        .title-box {
+            background: #d35400;
+            color: white;
+            font-size: 22px;
+            font-weight: bold;
+            text-transform: uppercase;
+            padding: 12px;
+            border-radius: 8px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .telegram-btn {
+            display: inline-flex;
+            align-items: center;
+            background: #0088cc;
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            transition: transform 0.3s;
+        }
+
+        .telegram-btn img {
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+        }
+
+        .telegram-btn:hover {
+            transform: scale(1.05);
+        }
+
+        h1 {
+            font-size: 26px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .event-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .event {
+            width: 400px;
+            background: var(--card-background);
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            padding-bottom: 15px;
+            animation: heartbeat 3s infinite;
+            transition: transform 0.3s;
+        }
+
+        .event:hover {
+            transform: scale(1.03);
+        }
+
+        .event img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+        }
+
+        .event-content {
+            padding: 15px;
+        }
+
+        .title {
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--text-color);
+            margin-bottom: 5px;
+        }
+
+        .league {
+            font-size: 14px;
+            color: #bbb;
+            margin-bottom: 10px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 15px;
+        }
+
+        .live-btn {
+            display: block;
+            width: 60%;
+            padding: 8px;
+            background: red;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+            margin: 0 auto;
+        }
+
+        .live-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .upcoming-btn {
+            display: block;
+            width: 60%;
+            padding: 8px;
+            background: yellow;
+            color: black;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+            margin: 0 auto;
+        }
+
+        .upcoming-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .live-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: red;
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 5px;
+            animation: livePulse 1.5s infinite;
+        }
+
+        /* Theme Toggle Button */
+        .toggle-btn {
+            width: 50px;
+            height: 50px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin: 0 auto 20px; /* Centered under Telegram button */
+        }
+
+        .toggle-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 1);
+        }
+
+        .toggle-btn span {
+            font-size: 24px;
+            color: black;
+        }
+
+    </style>
+</head>
+<body>
 
   <div class="max-w-7xl mx-auto px-4 py-10">
     <h1 class="text-4xl font-bold text-center text-white mb-10 tracking-wide">⚡ Fancode Live Matches</h1>
