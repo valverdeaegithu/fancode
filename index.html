@@ -1,0 +1,266 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fancode Live Matches</title>
+  <link rel="shortcut icon" href="https://fancode.cricsters.io/fancode.webp">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #0f0f0f;
+      color: #fff;
+    }
+    .match-card {
+      transition: all 0.3s ease-in-out;
+      background: linear-gradient(145deg, #1a1a1a, #1f1f1f);
+    }
+    .match-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 30px 40px rgba(0, 0, 0, 0.5);
+    }
+    .live-badge {
+      animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% {
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+      }
+      50% {
+        box-shadow: 0 0 15px 10px rgba(239, 68, 68, 0);
+      }
+    }
+    .match-img {
+      transition: transform 0.3s ease;
+    }
+    .match-card:hover .match-img {
+      transform: scale(1.03);
+    }
+  </style>
+</head>
+<body class="bg-gray-950 min-h-screen">
+
+  <div class="max-w-7xl mx-auto px-4 py-10">
+    <h1 class="text-4xl font-bold text-center text-white mb-10 tracking-wide">⚡ Fancode Live Matches</h1>
+    <div id="matches-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+      <!-- Matches load here -->
+    <div class="rounded-2xl overflow-hidden shadow-xl match-card border border-gray-800 ring-2 ring-red-600">
+            <div class="relative">
+              <img src="https://www.fancode.com/skillup-uploads/cms-media/123863_5128_TTL_GRR_fc-web.jpg" alt="Trinidad &amp; Tobago Legions vs Guyana Rainforest Rangers (West Indies Breakout League, 2025)" class="w-full h-60 object-cover match-img">
+              <span class="absolute top-3 left-3 bg-red-600 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md live-badge">LIVE</span>
+            </div>
+            <div class="p-6">
+              <h2 class="text-2xl font-semibold text-white mb-1">West Indies Breakout League, 2025</h2>
+              <p class="text-gray-400 text-sm mb-1">Trinidad &amp; Tobago Legions vs Guyana Rainforest Rangers</p>
+              <p class="text-sm text-gray-500 mb-4">Start: 04:30:00 AM 27-04-2025</p>
+              <div class="flex flex-wrap gap-3">
+                
+                  <a href="https://web.livesports18.workers.dev/ios=https://dai.fancode.com/primary/123863_english_hls_23869adfreeta-di_h264/index.m3u8" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm flex items-center shadow-md transition-all">
+                    <i class="fas fa-play mr-2"></i> Watch
+                  </a>
+                  <a href="https://web.livesports18.workers.dev/ios=https://dai.fancode.com/primary/123863_english_hls_23869adfreeta-di_h264/index.m3u8" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-sm flex items-center shadow-md transition-all">
+                    <i class="fas fa-ad mr-2"></i> Ad-Free
+                  </a>
+                
+              </div>
+            </div>
+          </div><div class="rounded-2xl overflow-hidden shadow-xl match-card border border-gray-800 ring-2 ring-red-600">
+            <div class="relative">
+              <img src="https://images.fancode.com/aig/match/v2/121894_CASACARDS_APP.png" alt="Seattle Mariners vs Miami Marlins (Major League Baseball, 2025)" class="w-full h-60 object-cover match-img">
+              <span class="absolute top-3 left-3 bg-red-600 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md live-badge">LIVE</span>
+            </div>
+            <div class="p-6">
+              <h2 class="text-2xl font-semibold text-white mb-1">Major League Baseball, 2025</h2>
+              <p class="text-gray-400 text-sm mb-1">Seattle Mariners vs Miami Marlins</p>
+              <p class="text-sm text-gray-500 mb-4">Start: 07:10:00 AM 27-04-2025</p>
+              <div class="flex flex-wrap gap-3">
+                
+                  <a href="https://web.livesports18.workers.dev/ios=https://dai.fancode.com/primary/121894_english_hls_59286adfreeta-di_h264/index.m3u8" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm flex items-center shadow-md transition-all">
+                    <i class="fas fa-play mr-2"></i> Watch
+                  </a>
+                  <a href="https://web.livesports18.workers.dev/ios=https://dai.fancode.com/primary/121894_english_hls_59286adfreeta-di_h264/index.m3u8" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-sm flex items-center shadow-md transition-all">
+                    <i class="fas fa-ad mr-2"></i> Ad-Free
+                  </a>
+                
+              </div>
+            </div>
+          </div><div class="rounded-2xl overflow-hidden shadow-xl match-card border border-gray-800 ">
+            <div class="relative">
+              <img src="https://www.fancode.com/skillup-uploads/cms-media/SL_vs_IND_W_ODI_TRI_series_2025_Old_match-card.jpg" alt="Sri Lanka Women vs India Women (Women's ODI Tri-Series)" class="w-full h-60 object-cover match-img">
+              
+            </div>
+            <div class="p-6">
+              <h2 class="text-2xl font-semibold text-white mb-1">Women's ODI Tri-Series</h2>
+              <p class="text-gray-400 text-sm mb-1">Sri Lanka Women vs India Women</p>
+              <p class="text-sm text-gray-500 mb-4">Start: 10:00:00 AM 27-04-2025</p>
+              <div class="flex flex-wrap gap-3">
+                <span class="text-gray-500 italic">Upcoming Match</span>
+              </div>
+            </div>
+          </div><div class="rounded-2xl overflow-hidden shadow-xl match-card border border-gray-800 ">
+            <div class="relative">
+              <img src="https://www.fancode.com/skillup-uploads/cms-media/Zimbabwe-Women's-tour-of-US_old.jpg" alt="USA Women vs Zimbabwe Women (Zimbabwe Women tour of USA, 2025)" class="w-full h-60 object-cover match-img">
+              
+            </div>
+            <div class="p-6">
+              <h2 class="text-2xl font-semibold text-white mb-1">Zimbabwe Women tour of USA, 2025</h2>
+              <p class="text-gray-400 text-sm mb-1">USA Women vs Zimbabwe Women</p>
+              <p class="text-sm text-gray-500 mb-4">Start: 09:15:00 PM 27-04-2025</p>
+              <div class="flex flex-wrap gap-3">
+                <span class="text-gray-500 italic">Upcoming Match</span>
+              </div>
+            </div>
+          </div><div class="rounded-2xl overflow-hidden shadow-xl match-card border border-gray-800 ">
+            <div class="relative">
+              <img src="https://www.fancode.com/skillup-uploads/cms-media/124273_5144_PC_DUR_fc-web.jpg" alt="Plate Combined vs Durg (Senior Elite Group T20 Tournament)" class="w-full h-60 object-cover match-img">
+              
+            </div>
+            <div class="p-6">
+              <h2 class="text-2xl font-semibold text-white mb-1">Senior Elite Group T20 Tournament</h2>
+              <p class="text-gray-400 text-sm mb-1">Plate Combined vs Durg</p>
+              <p class="text-sm text-gray-500 mb-4">Start: 07:45:00 AM 27-04-2025</p>
+              <div class="flex flex-wrap gap-3">
+                <span class="text-gray-500 italic">Upcoming Match</span>
+              </div>
+            </div>
+          </div><div class="rounded-2xl overflow-hidden shadow-xl match-card border border-gray-800 ">
+            <div class="relative">
+              <img src="https://www.fancode.com/skillup-uploads/cms-media/124275_5144_RAI_BB_fc-web.jpg" alt="Raipur vs Bilaspur Blue (Senior Elite Group T20 Tournament)" class="w-full h-60 object-cover match-img">
+              
+            </div>
+            <div class="p-6">
+              <h2 class="text-2xl font-semibold text-white mb-1">Senior Elite Group T20 Tournament</h2>
+              <p class="text-gray-400 text-sm mb-1">Raipur vs Bilaspur Blue</p>
+              <p class="text-sm text-gray-500 mb-4">Start: 08:15:00 AM 27-04-2025</p>
+              <div class="flex flex-wrap gap-3">
+                <span class="text-gray-500 italic">Upcoming Match</span>
+              </div>
+            </div>
+          </div><div class="rounded-2xl overflow-hidden shadow-xl match-card border border-gray-800 ">
+            <div class="relative">
+              <img src="https://www.fancode.com/skillup-uploads/cms-media/123515_5112_SMH_NYC_fc-Web_1744784369122.jpg" alt="Smashers vs 91 Yards Club (Guwahati Spring League)" class="w-full h-60 object-cover match-img">
+              
+            </div>
+            <div class="p-6">
+              <h2 class="text-2xl font-semibold text-white mb-1">Guwahati Spring League</h2>
+              <p class="text-gray-400 text-sm mb-1">Smashers vs 91 Yards Club</p>
+              <p class="text-sm text-gray-500 mb-4">Start: 09:00:00 AM 27-04-2025</p>
+              <div class="flex flex-wrap gap-3">
+                <span class="text-gray-500 italic">Upcoming Match</span>
+              </div>
+            </div>
+          </div><div class="rounded-2xl overflow-hidden shadow-xl match-card border border-gray-800 ">
+            <div class="relative">
+              <img src="https://www.fancode.com/skillup-uploads/cms-media/ECS-France,-2025-old-Match-card_1744784397115.jpg" alt="Paris Universite Club vs AC Stains (ECS France, 2025)" class="w-full h-60 object-cover match-img">
+              
+            </div>
+            <div class="p-6">
+              <h2 class="text-2xl font-semibold text-white mb-1">ECS France, 2025</h2>
+              <p class="text-gray-400 text-sm mb-1">Paris Universite Club vs AC Stains</p>
+              <p class="text-sm text-gray-500 mb-4">Start: 12:45:00 PM 27-04-2025</p>
+              <div class="flex flex-wrap gap-3">
+                <span class="text-gray-500 italic">Upcoming Match</span>
+              </div>
+            </div>
+          </div><div class="rounded-2xl overflow-hidden shadow-xl match-card border border-gray-800 ">
+            <div class="relative">
+              <img src="https://www.fancode.com/skillup-uploads/cms-media/123516_5112_GUG_NBC_fc-Web_1744784369096.jpg" alt="Guwahati Giants vs Nabajyoti Club (Guwahati Spring League)" class="w-full h-60 object-cover match-img">
+              
+            </div>
+            <div class="p-6">
+              <h2 class="text-2xl font-semibold text-white mb-1">Guwahati Spring League</h2>
+              <p class="text-gray-400 text-sm mb-1">Guwahati Giants vs Nabajyoti Club</p>
+              <p class="text-sm text-gray-500 mb-4">Start: 01:00:00 PM 27-04-2025</p>
+              <div class="flex flex-wrap gap-3">
+                <span class="text-gray-500 italic">Upcoming Match</span>
+              </div>
+            </div>
+          </div><div class="rounded-2xl overflow-hidden shadow-xl match-card border border-gray-800 ">
+            <div class="relative">
+              <img src="https://www.fancode.com/skillup-uploads/cms-media/ECS-France,-2025-old-Match-card-3_1744784397127.jpg" alt="Royal 94 vs Dreux (ECS France, 2025)" class="w-full h-60 object-cover match-img">
+              
+            </div>
+            <div class="p-6">
+              <h2 class="text-2xl font-semibold text-white mb-1">ECS France, 2025</h2>
+              <p class="text-gray-400 text-sm mb-1">Royal 94 vs Dreux</p>
+              <p class="text-sm text-gray-500 mb-4">Start: 02:45:00 PM 27-04-2025</p>
+              <div class="flex flex-wrap gap-3">
+                <span class="text-gray-500 italic">Upcoming Match</span>
+              </div>
+            </div>
+          </div><div class="rounded-2xl overflow-hidden shadow-xl match-card border border-gray-800 ">
+            <div class="relative">
+              <img src="https://www.fancode.com/skillup-uploads/cms-media/ECS-France,-2025-old-Match-card_1744784397115.jpg" alt="TBC vs TBC (ECS France, 2025)" class="w-full h-60 object-cover match-img">
+              
+            </div>
+            <div class="p-6">
+              <h2 class="text-2xl font-semibold text-white mb-1">ECS France, 2025</h2>
+              <p class="text-gray-400 text-sm mb-1">TBC vs TBC</p>
+              <p class="text-sm text-gray-500 mb-4">Start: 05:45:00 PM 27-04-2025</p>
+              <div class="flex flex-wrap gap-3">
+                <span class="text-gray-500 italic">Upcoming Match</span>
+              </div>
+            </div>
+          </div><div class="rounded-2xl overflow-hidden shadow-xl match-card border border-gray-800 ">
+            <div class="relative">
+              <img src="https://www.fancode.com/skillup-uploads/cms-media/ECS-France,-2025-old-Match-card-3_1744784397127.jpg" alt="TBC vs TBC (ECS France, 2025)" class="w-full h-60 object-cover match-img">
+              
+            </div>
+            <div class="p-6">
+              <h2 class="text-2xl font-semibold text-white mb-1">ECS France, 2025</h2>
+              <p class="text-gray-400 text-sm mb-1">TBC vs TBC</p>
+              <p class="text-sm text-gray-500 mb-4">Start: 08:45:00 PM 27-04-2025</p>
+              <div class="flex flex-wrap gap-3">
+                <span class="text-gray-500 italic">Upcoming Match</span>
+              </div>
+            </div>
+          </div></div>
+  </div>
+
+  <script>
+    const container = document.getElementById('matches-container');
+
+    fetch('https://raw.githubusercontent.com/drmlive/fancode-live-events/main/fancode.json')
+      .then(response => response.json())
+      .then(data => {
+        const matches = data.matches;
+
+        matches.forEach(match => {
+          const isLive = match.status === 'LIVE';
+
+          const card = document.createElement('div');
+          card.className = `rounded-2xl overflow-hidden shadow-xl match-card border border-gray-800 ${isLive ? 'ring-2 ring-red-600' : ''}`;
+
+          card.innerHTML = `
+            <div class="relative">
+              <img src="${match.src}" alt="${match.title}" class="w-full h-60 object-cover match-img">
+              ${isLive ? `<span class="absolute top-3 left-3 bg-red-600 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md live-badge">LIVE</span>` : ''}
+            </div>
+            <div class="p-6">
+              <h2 class="text-2xl font-semibold text-white mb-1">${match.event_name}</h2>
+              <p class="text-gray-400 text-sm mb-1">${match.match_name}</p>
+              <p class="text-sm text-gray-500 mb-4">Start: ${match.startTime}</p>
+              <div class="flex flex-wrap gap-3">
+                ${match.dai_url && match.adfree_url ? `
+                  <a href="https://web.bgrid.in/hls/?url=${match.dai_url}" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm flex items-center shadow-md transition-all">
+                    <i class="fas fa-play mr-2"></i> Watch
+                  </a>
+                  <a href="https://web.bgrid.in/hls/?url=${match.adfree_url}" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-sm flex items-center shadow-md transition-all">
+                    <i class="fas fa-ad mr-2"></i> Ad-Free
+                  </a>
+                ` : `<span class="text-gray-500 italic">Upcoming Match</span>`}
+              </div>
+            </div>
+          `;
+
+          container.appendChild(card);
+        });
+      })
+      .catch(error => {
+        console.error('Error fetching JSON:', error);
+        container.innerHTML = `<p class="text-center text-red-500">Failed to load matches.</p>`;
+      });
+  </script>
+
+
+
+<div id="vite" data-v-app=""><!----></div></body>
