@@ -253,10 +253,10 @@
               <p class="text-sm text-gray-500 mb-4">Start: ${match.startTime}</p>
               <div class="flex flex-wrap gap-3">
                 ${match.dai_url && match.adfree_url ? `
-                  <a href="https://web.bgrid.in/hls/?url=${match.dai_url}" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm flex items-center shadow-md transition-all">
+                  <a href="https://hls-player-three.vercel.app/?url=${match.dai_url}" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm flex items-center shadow-md transition-all">
                     <i class="fas fa-play mr-2"></i> Watch
                   </a>
-                  <a href="https://web.bgrid.in/hls/?url=${match.adfree_url}" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-sm flex items-center shadow-md transition-all">
+                  <a href="https://hls-player-three.vercel.app/?url=${match.adfree_url}" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-sm flex items-center shadow-md transition-all">
                     <i class="fas fa-ad mr-2"></i> Ad-Free
                   </a>
                 ` : `<span class="text-gray-500 italic">Upcoming Match</span>`}
