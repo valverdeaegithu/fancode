@@ -5,271 +5,318 @@
   <link rel="shortcut icon" href="https://fancode.cricsters.io/fancode.webp">
   <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool'></script>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-    <style>
-        @keyframes heartbeat {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.02); }
-            100% { transform: scale(1); }
-        }
-
-        @keyframes livePulse {
-            0% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.2); opacity: 0.7; }
-            100% { transform: scale(1); opacity: 1; }
-        }
-
-        :root {
-            --background-color: #121212;
-            --text-color: white;
-            --card-background: #222;
-        }
-
-        .light-theme {
-            --background-color: white;
-            --text-color: black;
-            --card-background: #f0f0f0;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background: var(--background-color);
-            color: var(--text-color);
-            padding: 20px;
-            transition: background 0.5s, color 0.5s;
-        }
-
-        .title-box {
-            background: #d35400;
-            color: white;
-            font-size: 22px;
-            font-weight: bold;
-            text-transform: uppercase;
-            padding: 12px;
-            border-radius: 8px;
-            display: inline-block;
-            margin-bottom: 10px;
-        }
-
-        .telegram-btn {
-            display: inline-flex;
-            align-items: center;
-            background: #0088cc;
-            color: white;
-            text-decoration: none;
-            font-size: 16px;
-            font-weight: bold;
-            padding: 10px 15px;
-            border-radius: 8px;
-            margin-bottom: 15px;
-            transition: transform 0.3s;
-        }
-
-        .telegram-btn img {
-            width: 20px;
-            height: 20px;
-            margin-right: 8px;
-        }
-
-        .telegram-btn:hover {
-            transform: scale(1.05);
-        }
-
-        h1 {
-            font-size: 26px;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-        }
-
-        .event-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .event {
-            width: 400px;
-            background: var(--card-background);
-            border-radius: 12px;
-            overflow: hidden;
-            position: relative;
-            padding-bottom: 15px;
-            animation: heartbeat 3s infinite;
-            transition: transform 0.3s;
-        }
-
-        .event:hover {
-            transform: scale(1.03);
-        }
-
-        .event img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            border-top-left-radius: 12px;
-            border-top-right-radius: 12px;
-        }
-
-        .event-content {
-            padding: 15px;
-        }
-
-        .title {
-            font-size: 18px;
-            font-weight: bold;
-            color: var(--text-color);
-            margin-bottom: 5px;
-        }
-
-        .league {
-            font-size: 14px;
-            color: #bbb;
-            margin-bottom: 10px;
-        }
-
-        .buttons {
-            display: flex;
-            justify-content: center;
-            margin-top: 15px;
-        }
-
-        .live-btn {
-            display: block;
-            width: 60%;
-            padding: 8px;
-            background: red;
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-size: 14px;
-            font-weight: bold;
-            text-align: center;
-            transition: transform 0.3s ease-in-out;
-            margin: 0 auto;
-        }
-
-        .live-btn:hover {
-            transform: scale(1.05);
-        }
-
-
-        .upcoming-btn {
-            display: block;
-            width: 60%;
-            padding: 8px;
-            background: yellow;
-            color: black;
-            text-decoration: none;
-            border-radius: 8px;
-            font-size: 14px;
-            font-weight: bold;
-            text-align: center;
-            transition: transform 0.3s ease-in-out;
-            margin: 0 auto;
-        }
-
-        .upcoming-btn:hover {
-            transform: scale(1.05);
-        }
-
-        .live-badge {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            background: red;
-            color: white;
-            font-size: 12px;
-            font-weight: bold;
-            padding: 5px 10px;
-            border-radius: 5px;
-            animation: livePulse 1.5s infinite;
-        }
-
-        /* Theme Toggle Button */
-        .toggle-btn {
-            width: 50px;
-            height: 50px;
-            background: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-            margin: 0 auto 20px; /* Centered under Telegram button */
-        }
-
-        .toggle-btn:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 20px rgba(255, 255, 255, 1);
-        }
-
-        .toggle-btn span {
-            font-size: 24px;
-            color: black;
-        }
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+    
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-5px); }
+      100% { transform: translateY(0px); }
+    }
+    
+    :root {
+      --primary: #FF6B00;
+      --secondary: #1A1A2E;
+      --accent: #00C2FF;
+      --text: #F1F1F1;
+      --card-bg: #16213E;
+    }
+    
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background-color: var(--secondary);
+      color: var(--text);
+      min-height: 100vh;
+    }
+    
+    .header {
+      background: linear-gradient(135deg, var(--primary) 0%, #FF8C00 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .telegram-btn {
+      background: linear-gradient(135deg, #0088CC 0%, #00ACEA 100%);
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0, 140, 204, 0.3);
+    }
+    
+    .telegram-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 140, 204, 0.4);
+    }
+    
+    .match-card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    
+    .match-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      border-color: rgba(255, 107, 0, 0.3);
+    }
+    
+    .match-img {
+      height: 200px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .match-card:hover .match-img {
+      transform: scale(1.05);
+    }
+    
+    .live-badge {
+      background: linear-gradient(135deg, #FF0000 0%, #FF6B6B 100%);
+      animation: pulse 2s infinite;
+      box-shadow: 0 2px 4px rgba(255, 0, 0, 0.3);
+    }
+    
+    .watch-btn {
+      background: linear-gradient(135deg, var(--primary) 0%, #FF8C00 100%);
+      transition: all 0.3s ease;
+    }
+    
+    .watch-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(255, 107, 0, 0.4);
+    }
+    
+    .adfree-btn {
+      background: linear-gradient(135deg, #00C2FF 0%, #0084FF 100%);
+      transition: all 0.3s ease;
+    }
+    
+    .adfree-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 194, 255, 0.4);
+    }
+    
+    .upcoming-tag {
+      background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+      color: #000;
+    }
+    
+    .theme-toggle {
+      background: var(--card-bg);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+    
+    .theme-toggle:hover {
+      transform: rotate(15deg);
+      box-shadow: 0 0 15px rgba(255, 107, 0, 0.5);
+    }
+    
+    .countdown {
+      font-feature-settings: "tnum";
+      font-variant-numeric: tabular-nums;
+    }
+    
+    .floating {
+      animation: float 3s ease-in-out infinite;
+    }
   </style>
 </head>
-<body class="bg-gray-950 min-h-screen">
-    <br>
-    <a href="https://t.me/matcheslinks" target="_blank" class="telegram-btn">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram Logo">
-        Join Telegram
-    </a>
-<div class="max-w-7xl mx-auto px-4 py-10">
-    <h1 class="text-4xl font-bold text-center text-white mb-10 tracking-wide"> Fancode Live Matches</h1>
-    <div id="matches-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-      <!-- Matches load here -->
+<body class="min-h-screen">
+  <div class="container mx-auto px-4 py-8">
+    <!-- Header Section -->
+    <div class="text-center mb-10">
+      <div class="floating inline-block mb-6">
+        <img src="https://fancode.cricsters.io/fancode.webp" alt="Fancode Logo" class="w-20 h-20 rounded-full border-4 border-orange-500/30 shadow-lg">
+      </div>
+      
+      <h1 class="header text-5xl font-extrabold mb-4">FANCODE LIVE MATCHES</h1>
+      <p class="text-gray-400 max-w-2xl mx-auto">Watch all your favorite sports events live in high quality streams</p>
+      
+      <div class="mt-8 flex justify-center gap-4">
+        <a href="https://t.me/matcheslinks" target="_blank" class="telegram-btn px-6 py-3 rounded-full text-white font-semibold inline-flex items-center">
+          <i class="fab fa-telegram-plane mr-2 text-xl"></i> Join Our Telegram
+        </a>
+        
+        <button class="theme-toggle w-12 h-12 rounded-full flex items-center justify-center text-xl">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
+    </div>
     
-                </div>
-
+    <!-- Matches Grid -->
+    <div id="matches-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Matches will be loaded here -->
+    </div>
+    
+    <!-- Footer -->
+    <div class="mt-16 text-center text-gray-500 text-sm">
+      <p>© 2023 Fancode Live Matches | Powered by @matcheslinks</p>
+      <p class="mt-2">All streams are sourced from official broadcasters</p>
+    </div>
   </div>
 
   <script>
-    const container = document.getElementById('matches-container');
+    // Theme Toggle
+    const themeToggle = document.querySelector('.theme-toggle');
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('light-theme');
+      const icon = themeToggle.querySelector('i');
+      if (document.body.classList.contains('light-theme')) {
+        icon.classList.replace('fa-moon', 'fa-sun');
+        document.documentElement.style.setProperty('--primary', '#FF8C00');
+        document.documentElement.style.setProperty('--secondary', '#F5F5F5');
+        document.documentElement.style.setProperty('--text', '#333333');
+        document.documentElement.style.setProperty('--card-bg', '#FFFFFF');
+      } else {
+        icon.classList.replace('fa-sun', 'fa-moon');
+        document.documentElement.style.setProperty('--primary', '#FF6B00');
+        document.documentElement.style.setProperty('--secondary', '#1A1A2E');
+        document.documentElement.style.setProperty('--text', '#F1F1F1');
+        document.documentElement.style.setProperty('--card-bg', '#16213E');
+      }
+    });
 
+    // Load Matches
+    const container = document.getElementById('matches-container');
+    
+    // Show skeleton loading
+    container.innerHTML = `
+      <div class="col-span-3 flex justify-center">
+        <div class="animate-pulse text-gray-500 flex items-center">
+          <i class="fas fa-circle-notch fa-spin mr-2"></i> Loading matches...
+        </div>
+      </div>
+    `;
+    
     fetch('https://raw.githubusercontent.com/drmlive/fancode-live-events/main/fancode.json')
       .then(response => response.json())
       .then(data => {
-        const matches = data.matches;
-
-        matches.forEach(match => {
-          const isLive = match.status === 'LIVE';
-
-          const card = document.createElement('div');
-          card.className = `rounded-2xl overflow-hidden shadow-xl match-card border border-gray-800 ${isLive ? 'ring-2 ring-red-600' : ''}`;
-
-          card.innerHTML = `
-            <div class="relative">
-              <img src="${match.src}" alt="${match.title}" class="w-full h-60 object-cover match-img">
-              ${isLive ? `<span class="absolute top-3 left-3 bg-red-600 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md live-badge">LIVE</span>` : ''}
-            </div>
-            <div class="p-6">
-              <h2 class="text-2xl font-semibold text-white mb-1">${match.event_name}</h2>
-              <p class="text-gray-400 text-sm mb-1">${match.match_name}</p>
-              <p class="text-sm text-gray-500 mb-4">Start: ${match.startTime}</p>
-              <div class="flex flex-wrap gap-3">
-                ${match.dai_url && match.adfree_url ? `
-                  <a href="https://hls-player-three.vercel.app/?url=${match.dai_url}" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm flex items-center shadow-md transition-all">
-                    <i class="fas fa-play mr-2"></i> Watch
-                  </a>
-                  <a href="https://hls-player-three.vercel.app/?url=${match.adfree_url}" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-sm flex items-center shadow-md transition-all">
-                    <i class="fas fa-ad mr-2"></i> Ad-Free
-                  </a>
-                ` : `<span class="text-gray-500 italic">Upcoming Match</span>`}
+        container.innerHTML = '';
+        
+        if (!data.matches || data.matches.length === 0) {
+          container.innerHTML = `
+            <div class="col-span-3 text-center py-10">
+              <div class="inline-block bg-gray-800/50 p-6 rounded-xl">
+                <i class="fas fa-tv text-4xl text-gray-600 mb-4"></i>
+                <h3 class="text-xl font-semibold">No matches available</h3>
+                <p class="text-gray-500 mt-2">Check back later for upcoming events</p>
               </div>
             </div>
           `;
-
+          return;
+        }
+        
+        data.matches.forEach(match => {
+          const isLive = match.status === 'LIVE';
+          const hasStreams = match.dai_url && match.adfree_url;
+          
+          // Format start time
+          const startTime = new Date(match.startTime);
+          const options = { 
+            weekday: 'short', 
+            day: 'numeric', 
+            month: 'short', 
+            hour: '2-digit', 
+            minute: '2-digit' 
+          };
+          const formattedTime = startTime.toLocaleDateString('en-US', options);
+          
+          // Calculate countdown if upcoming
+          let countdown = '';
+          if (!isLive && !hasStreams) {
+            const now = new Date();
+            const diff = startTime - now;
+            
+            if (diff > 0) {
+              const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+              const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+              const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+              
+              countdown = `Starts in ${days}d ${hours}h ${mins}m`;
+            } else {
+              countdown = 'Starting soon';
+            }
+          }
+          
+          const card = document.createElement('div');
+          card.className = `match-card ${isLive ? 'ring-2 ring-red-500/30' : ''}`;
+          
+          card.innerHTML = `
+            <div class="relative overflow-hidden">
+              <img src="${match.src || 'https://via.placeholder.com/400x200?text=No+Image'}" 
+                   alt="${match.event_name}" 
+                   class="w-full match-img">
+              
+              ${isLive ? `
+                <div class="absolute top-4 left-4">
+                  <span class="live-badge px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+                    <i class="fas fa-circle mr-1"></i> Live Now
+                  </span>
+                </div>
+              ` : ''}
+              
+              <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+                <h3 class="text-xl font-bold">${match.event_name}</h3>
+                <p class="text-sm text-gray-300">${match.match_name}</p>
+              </div>
+            </div>
+            
+            <div class="p-5">
+              <div class="flex justify-between items-center mb-4">
+                <div class="text-sm text-gray-400">
+                  <i class="far fa-clock mr-1"></i> ${formattedTime}
+                </div>
+                ${countdown ? `
+                  <div class="countdown text-xs bg-yellow-500/20 text-yellow-400 px-2 py-1 rounded">
+                    ${countdown}
+                  </div>
+                ` : ''}
+              </div>
+              
+              ${hasStreams ? `
+                <div class="flex flex-col sm:flex-row gap-3">
+                  <a href="https://hls-player-three.vercel.app/?url=${match.dai_url}" 
+                     class="watch-btn flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-lg font-medium">
+                    <i class="fas fa-play"></i> Watch Stream
+                  </a>
+                  
+                  <a href="https://hls-player-three.vercel.app/?url=${match.adfree_url}" 
+                     class="adfree-btn flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-lg font-medium">
+                    <i class="fas fa-crown"></i> Ad-Free
+                  </a>
+                </div>
+              ` : `
+                <div class="upcoming-tag px-4 py-3 rounded-lg text-center font-medium">
+                  <i class="fas fa-calendar-alt mr-2"></i> Upcoming Match
+                </div>
+              `}
+            </div>
+          `;
+          
           container.appendChild(card);
         });
       })
       .catch(error => {
-        console.error('Error fetching JSON:', error);
-        container.innerHTML = `<p class="text-center text-red-500">Failed to load matches.</p>`;
+        console.error('Error fetching matches:', error);
+        container.innerHTML = `
+          <div class="col-span-3 text-center py-10">
+            <div class="inline-block bg-red-900/20 p-6 rounded-xl border border-red-900/30">
+              <i class="fas fa-exclamation-triangle text-4xl text-red-500 mb-4"></i>
+              <h3 class="text-xl font-semibold">Failed to load matches</h3>
+              <p class="text-gray-500 mt-2">Please try again later</p>
+              <button onclick="window.location.reload()" 
+                      class="mt-4 px-4 py-2 bg-red-600 hover:bg-red-700 rounded-lg text-sm font-medium transition">
+                <i class="fas fa-sync-alt mr-2"></i> Reload
+              </button>
+            </div>
+          </div>
+        `;
       });
   </script>
-</html>
+</body>
